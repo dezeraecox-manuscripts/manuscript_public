@@ -19,7 +19,7 @@ To use this repository, first clone the repository using the ```Use this templat
 
 ### 2. Select your template branch
 
-Once cloned, find your template of interest (currently provided are *general*, *image-analysis* and *mass-spectrometry* examples) by inspecting each of the relevant branches, and generate a pull request to merge these changes into the ```main``` branch.
+Once cloned, find your template of interest (currently provided are *general*, *image-analysis* and *mass-spectrometry* examples) by inspecting each of the relevant branches, and generate a pull request to merge these changes into the ```main``` branch. Optionally, you may also remove the remaining template branches using ```git branch -d BranchName``` (delete local branch) and ```git push origin --delete BranchName``` (delete the remote version) for each of the unused branches.
 
 ### 3. Add components
 
