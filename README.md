@@ -1,48 +1,46 @@
-# Public repository template for scientific manuscripts
+[![DOI](https://zenodo.org/badge/..../.svg)](https://doi.org/###/zenodo.###)
 
-This repository contains a collection of templates designed to ease the creation of public-facing code and data repositories for scientific manuscripts. The templates provided are geared toward python-directed computational analyses of biological datasets, but could be adapted to suit other purposes at the users discretion.
+# AUTHOR_Running-title
 
-### Before you start: External repositories for storing raw data collections *(optional)*
+This repository contains the analysis code associated with the **###** project, led by **###**. This manuscript has been submitted for publication under the title **"#####"**.
 
-Many disciplines maintain technique-specific repositories for all raw data associated with published manuscripts, for example the PRIDE repository housing raw mass spectrometry data. It is recommended to use these repositories in the first instance, and usage instructions given by the provider should be followed. In most cases, these databases will generate a unique identifier or DOI which can then be linked in the accompanying repository here. For example, space is provided for PRIDE identifiers for mass spectrometry data etc.
+This manuscript has been submitted as a preprint via BioRxiv [here](biorxiv/link). A link to the final version will be provided upon publication.
 
-In the case of no specific repositories being available, general-use examples include [FigShare](https://figshare.com/) and [Zenodo](https://zenodo.org/). Both accept raw dataset submissions, generate a DOI and provide long-term public managed access to your dataset.
+## Prerequisites
 
-Once any external data respository DOI's have been generated, proceed to editing this repository which will house your analysis scripts.
+This analysis assumes a standard installation of Python 3 (=> **version**). For specific package requirements, see the environment.yml file, or  create a new conda environment containing all packages by running ```conda create -f environment.yml```. In addition to the analysis contained here, some simple statistical tests were performed using [GraphPad Prism v **8.0**](https://www.graphpad.com/scientific-software/prism/).
 
-## Getting started
----
+## Raw data
 
-### 1. Clone the template repository
+For convenience, example datasets are provided here under the ```data``` folder. These data may be used to explore the workflows presented here as described below.
 
-To use this repository, first clone the repository using the ```Use this template``` button, and check the box to include all branches. It is recommended to title the repository using the *AUTHOR_Running-title syntax* for ease of use and access.
+In addition, the complete set of raw data have been uploaded as an open-access [Zenodo dataset](https://doi.org/###/zenodo.###). These datasets can be collected automatically using the ```raw_data.py``` script in each of the respective analysis folders.
 
-### 2. Select your template branch
+## Workflow
 
-Once cloned, find your template of interest (currently provided are *general*, *image-analysis* and *mass-spectrometry* examples) by inspecting each of the relevant branches, and generate a pull request to merge these changes into the ```main``` branch. Optionally, you may also remove the remaining template branches using ```git branch -d BranchName``` (delete local branch) and ```git push origin --delete BranchName``` (delete the remote version) for each of the unused branches.
+Example raw images and partially processed results are provided here within the ```data``` folder to test the included analysis scripts.
 
-### 3. Add components
+Initial preprocessing of the raw microscopy files to extract TIFF images from proprietary formats was completed in [Fiji][1]<sup>[1]</sup> or [ImageJ][2] <sup>[2]</sup> using the [BioFormats importer][3] <sup>[3]</sup> (available via the drag-and-drop interface). Some additional utility scripts are included covering this in the ```src``` folder. Stacked or individual TIFF files were then exported for further processing where necessary, examples of which are provided within the ```data``` folder.
 
-Add your codebase under the ```src``` folder and example data to the ```data``` folder. An optional ```utilities``` folder is also provided to house scripts that are accessed via relative imports in the ```src``` files. 
+Individual analyses are presented within the ```src``` folder. Where processing order is important for individual analyses, scripts have been numbered and should be run in order before unnumbered counterparts.
 
-Add your environment file (an [environment.yml](environment.yml) example is provided), including relevant version constraints. For example, an environment file containing only the components explicitly installed in a conda environment can be generated using the command ```conda env export --from-history```.
+1. [Analysis-name](link/to/folder)
 
-Check (or replace) the [license](LICENSE) file, and ensure that it provides appropriate permissions for anyone wishing to repurpose your codebase/dataset. 
+| Script      | Language/Interpreter | Description   |
+|-------------|----------------------|---------------|
+| script_name | Jython/ImageJ        | Functionality |
+| script_name | Python               | Functionality |
 
-Finally, check (or replace) the [.gitignore](.gitignore) file. A standard python version is provided.
-### 4. Edit the README
+## References
 
-In the newly-updated main branch (after merging your template branch of interest), the [README](README.md) will update to the relevant front matter. Edit this file to reflect your manuscript details, and include a summary of the workflow(s) to be contained within the repository.
+[1]: https://imagej.net/ImageJ2
 
-Some commonly-used references are provided in each template, as well as an example table for providing detailed workflow descriptions. Alternatively, users familiar with python may wish to try a specific workflow management method, such as [SnakeMake](https://snakemake.readthedocs.io/en/stable/) or [YAWL](https://yawlfoundation.github.io/).
+1. Schindelin, Johannes, Ignacio Arganda-Carreras, Erwin Frise, Verena Kaynig, Mark Longair, Tobias Pietzsch, Stephan Preibisch, et al. “Fiji: An Open-Source Platform for Biological-Image Analysis.” Nature Methods 9, no. 7 (July 2012): 676–82. https://doi.org/10.1038/nmeth.2019.
 
-### 5. RECOMMENDED: Zenodo repository for code archive and DOI creation
+[2]: https://imagej.net/Fiji
 
-In addition to providing publically-accessible code via this GitHub repository, services such as [FigShare](https://figshare.com/) and [Zenodo](https://zenodo.org/) can connect with GitHub to generate archived and versioned copies of individual repositories. Using this integration, it is then possible to generate a DOI which can be included in your manuscript to point to the accompanying codebase here.
+2. Rueden, Curtis T., Johannes Schindelin, Mark C. Hiner, Barry E. DeZonia, Alison E. Walter, Ellen T. Arena, and Kevin W. Eliceiri. “ImageJ2: ImageJ for the next Generation of Scientific Image Data.” BMC Bioinformatics 18, no. 1 (November 29, 2017): 529. https://doi.org/10.1186/s12859-017-1934-z.
 
- It is recommended to do this once editing your cloned version of this repository is complete, and space is provided at the top of the README in each template to house the associated repository badges.
+[3]: https://docs.openmicroscopy.org/bio-formats/5.8.2/users/imagej/installing.html
 
-## Disclaimer
----
-
-*This template repository was designed for personal use and is provided as-is. Whilst I endeavour to keep it up-to-date and respond to issues raised here, I can provide no guarantee of the completeness, accuracy, reliability, suitability or availability of the information, services and software contained here for your use case.*
+3. Linkert, Melissa, Curtis T. Rueden, Chris Allan, Jean-Marie Burel, Will Moore, Andrew Patterson, Brian Loranger, et al. “Metadata Matters: Access to Image Data in the Real World.” Journal of Cell Biology 189, no. 5 (May 31, 2010): 777–82. https://doi.org/10.1083/jcb.201004104.
